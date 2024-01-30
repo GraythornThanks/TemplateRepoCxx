@@ -1,22 +1,31 @@
-cmake_minimum_required(VERSION 3.20.0)
+cmake_minimum_required(VERSION 3.27)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_C_STANDARD 17)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
 
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+    message("Setting default build type to Release")
+endif()
 
-project(NeedProjectName VERSION 0.1.0 LANGUAGES C CXX)
+if(MSVC)
+    add_compile_options(/utf-8)
+endif()
 
-add_definitions(-DDEBUG)
+project(my_project_name VERSION 0.0.1 LANGUAGES C CXX)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
-# add_subdirectory(./test)
-# add_subdirectory(./example)
-# add_subdirectory(./src)
+set(DEBUG_OUTPUT_DIR ${PROJECT_BINARY_DIR}/debug/bin)
+set(RELEASE_OUTPUT_DIR ${PROJECT_BINARY_DIR}/release/bin)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${DEBUG_OUTPUT_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${DEBUG_OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${DEBUG_OUTPUT_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${RELEASE_OUTPUT_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${RELEASE_OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${RELEASE_OUTPUT_DIR})
 
-# include(CTest)
-# enable_testing()
-
-# set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-# set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-# include(CPack)
+add_subdirectory(demo1)

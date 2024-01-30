@@ -53,8 +53,32 @@ _deps
 !.vscode/extensions.json
 !.vscode/*.code-snippets
 
+# CLion
+.idea/*
+cmake-build-debug/*
+
 # Local History for Visual Studio Code
 .history/
 
+# clangd
+.cache/
+
 # Built Visual Studio Code Extensions
 *.vsix
+
+draft/
+
+# log for perf
+log
+tmp
+*.rdb
+*.svg
+perf/
+perf.data*
+*.data
+*.perf
+*.folded
+palette.map
+
+# public/index.html for httpd
+public/
