@@ -6,18 +6,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
 
+
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
     message("Setting default build type to Release")
 endif()
 
+
 if(MSVC)
     add_compile_options(/utf-8)
 endif()
 
+
 project(my_project_name VERSION 0.0.1 LANGUAGES C CXX)
 
-include_directories(${PROJECT_SOURCE_DIR}/include)
+# include_directories(${PROJECT_SOURCE_DIR}/include)
 
 set(DEBUG_OUTPUT_DIR ${PROJECT_BINARY_DIR}/debug/bin)
 set(RELEASE_OUTPUT_DIR ${PROJECT_BINARY_DIR}/release/bin)
@@ -29,3 +32,4 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${RELEASE_OUTPUT_DIR})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${RELEASE_OUTPUT_DIR})
 
 add_subdirectory(demo1)
+
