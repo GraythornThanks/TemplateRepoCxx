@@ -6,19 +6,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake;${CMAKE_MODULE_PATH}")
 
-
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
     message("Setting default build type to Release")
 endif()
 
+project(project_name VERSION 0.0.1 LANGUAGES C CXX)
 
 if(MSVC)
     add_compile_options(/utf-8)
 endif()
 
-
-project(my_project_name VERSION 0.0.1 LANGUAGES C CXX)
 
 # include_directories(${PROJECT_SOURCE_DIR}/include)
 
