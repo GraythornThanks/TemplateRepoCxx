@@ -6,6 +6,11 @@ add_executable(main ${sources})
 
 target_include_directories(main PUBLIC include)
 
+include(./cmake)
+
+add_subdirectory(./example)
+add_subdirectory(./test)
+
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
     target_compile_definitions(main PUBLIC COMPILER="gcc")
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "NVIDIA")
@@ -16,7 +21,5 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     target_compile_definitions(main PUBLIC COMPILER="msvc")
 endif()
 
-include(./cmake)
-
-add_subdirectory(./example)
-add_subdirectory(./test)
+add_custom_target(run COMMAND $<TARGET_FILE:main>)
+add_custom_target(configure COMMAND $<CMAKE_EDIT_COMMAND>)
