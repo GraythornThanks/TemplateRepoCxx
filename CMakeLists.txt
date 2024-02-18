@@ -17,8 +17,11 @@ if(MSVC)
     add_compile_options(/utf-8)
 endif()
 
+#include_directories(${PROJECT_SOURCE_DIR}/include)
 
-# include_directories(${PROJECT_SOURCE_DIR}/include)
+#set_property(GLOBAL PROPERTY LINK_WHAT_YOU_USE ON)
+
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 set(DEBUG_OUTPUT_DIR ${PROJECT_BINARY_DIR}/debug/bin)
 set(RELEASE_OUTPUT_DIR ${PROJECT_BINARY_DIR}/release/bin)

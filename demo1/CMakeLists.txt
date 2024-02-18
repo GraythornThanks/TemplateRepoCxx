@@ -1,10 +1,20 @@
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS include/*.h include/*.hpp src/*.c src/*.cpp src/*.cc)
 
-add_executable(demo1 ${sources})
+add_executable(main ${sources})
 
-#target_link_libraries(demo1 PUBLIC benchmark::benchmark)
+#target_link_libraries(main PUBLIC benchmark::benchmark)
 
-target_include_directories(demo1 PUBLIC include)
+target_include_directories(main PUBLIC include)
+
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    target_compile_definitions(main PUBLIC COMPILER="gcc")
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "NVIDIA")
+    target_compile_definitions(main PUBLIC COMPILER="nvcc")
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    target_compile_definitions(main PUBLIC COMPILER="clang")
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    target_compile_definitions(main PUBLIC COMPILER="msvc")
+endif()
 
 include(./cmake)
 
