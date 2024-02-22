@@ -22,4 +22,4 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 endif()
 
 add_custom_target(run COMMAND $<TARGET_FILE:main>)
-add_custom_target(configure COMMAND $<CMAKE_EDIT_COMMAND>)
+add_custom_target(configure COMMAND ${CMAKE_EDIT_COMMAND} -B ${CMAKE_BINARY_DIR})
