@@ -23,5 +23,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     target_compile_definitions(${MAIN_EXECUTABLE_NAME} PUBLIC COMPILER="msvc")
 endif()
 
-add_custom_target(run COMMAND $<TARGET_FILE:${MAIN_EXECUTABLE_NAME}>)
+if(NOT MSVC)
+    add_custom_target(run COMMAND $<TARGET_FILE:${MAIN_EXECUTABLE_NAME}>)
+endif()
 add_custom_target(configure COMMAND ${CMAKE_EDIT_COMMAND} -B ${CMAKE_BINARY_DIR})
