@@ -1,10 +1,13 @@
-set(MAIN_EXECUTABLE_NAME main)
+set(MAIN_EXECUTABLE_NAME demo1)
 
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS include/*.h include/*.hpp src/*.c src/*.cpp src/*.cc)
 
 add_executable(${MAIN_EXECUTABLE_NAME} ${sources})
 
 #target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC benchmark::benchmark)
+target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC glad)
+target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC glfw)
+target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC glfw)
 
 target_include_directories(${MAIN_EXECUTABLE_NAME} PUBLIC include)
 
