@@ -18,5 +18,5 @@
 
 1. 直接复制demo1文件夹，更改新文件夹名
 2. 在主 `CMakeLists.txt` 中使用 `add_subdirectory()` 添加新子文件夹
-3. 修改子文件夹中的 `set_target_properties(main PROPERTIES TARGET_FILE_NAME "demo1")` 属性
+3. 修改子文件夹中的 `MAIN_EXECUTABLE_NAME`
 
