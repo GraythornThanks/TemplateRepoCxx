@@ -1,5 +1,7 @@
 # _A Cpp Template_
 
+自用模板
+
 原仓库地址：
 🌟[Github Repo](https://github.com/Codesire-Deng/TemplateRepoCxx)
 
@@ -17,6 +19,5 @@
 如何添加一个子项目？
 
 1. 直接复制demo1文件夹，更改新文件夹名
-2. 在主 `CMakeLists.txt` 中使用 `add_subdirectory()` 添加新子文件夹
-3. 修改子文件夹中的 `MAIN_EXECUTABLE_NAME`
+2. 在主 `CMakeLists.txt` 中使用 `add_subdirectory()` 添加该新子文件夹
 

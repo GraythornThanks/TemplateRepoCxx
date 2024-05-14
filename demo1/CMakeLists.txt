@@ -7,7 +7,7 @@ add_executable(${MAIN_EXECUTABLE_NAME} ${sources})
 #target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC benchmark::benchmark)
 target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC glad)
 target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC glfw)
-target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC glfw)
+target_link_libraries(${MAIN_EXECUTABLE_NAME} PUBLIC glm)
 
 target_include_directories(${MAIN_EXECUTABLE_NAME} PUBLIC include)
 
