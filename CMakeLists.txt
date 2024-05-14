@@ -58,3 +58,5 @@ add_subdirectory(glm)
 
 add_subdirectory(demo1)
 
+add_custom_target(configure COMMAND ${CMAKE_EDIT_COMMAND} -B ${CMAKE_BINARY_DIR})
+

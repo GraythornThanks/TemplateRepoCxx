@@ -1,4 +1,4 @@
-set(MAIN_EXECUTABLE_NAME demo1)
+get_filename_component(MAIN_EXECUTABLE_NAME ${CMAKE_CURRENT_LIST_DIR} NAME)
 
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS include/*.h include/*.hpp src/*.c src/*.cpp src/*.cc)
 
@@ -27,6 +27,5 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 endif()
 
 if(NOT MSVC)
-    add_custom_target(run COMMAND $<TARGET_FILE:${MAIN_EXECUTABLE_NAME}>)
+    add_custom_target(run${MAIN_EXECUTABLE_NAME} COMMAND $<TARGET_FILE:${MAIN_EXECUTABLE_NAME}>)
 endif()
-add_custom_target(configure COMMAND ${CMAKE_EDIT_COMMAND} -B ${CMAKE_BINARY_DIR})
